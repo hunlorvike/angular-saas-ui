@@ -1,4 +1,8 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import {
+    ApplicationConfig,
+    provideZoneChangeDetection,
+    importProvidersFrom,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -12,6 +16,8 @@ import { withNgxsLoggerPlugin } from '@ngxs/logger-plugin';
 import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
 import { withNgxsStoragePlugin } from '@ngxs/storage-plugin';
 import { provideStore } from '@ngxs/store';
+import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -28,5 +34,7 @@ export const appConfig: ApplicationConfig = {
                 keys: ['auth'],
             })
         ),
+        importProvidersFrom(FormsModule),
+        provideHttpClient(),
     ],
 };
