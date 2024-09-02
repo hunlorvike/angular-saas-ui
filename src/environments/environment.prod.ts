@@ -1,6 +1,6 @@
 import { EnvironmentModel } from '../app/core/models/environment.model';
 
 export const environment: EnvironmentModel = {
-    production: false,
+    production: true,
     apiUrl: '',
 };

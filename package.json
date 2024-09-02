@@ -5,15 +5,15 @@
     "ng": "ng",
     "start": "ng serve",
     "start:prod": "ng serve --configuration production",
-    "build": "ng build --configuration development",
+    "build": "ng build",
     "build:prod": "ng build --configuration production",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng build --watch",
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.html\"",
-    "analyze": "npx source-map-explorer dist/daiminhvietnam/*.js",
-    "serve:ssr:daiminhvietnam": "node dist/daiminhvietnam/server/server.mjs"
+    "analyze": "npx source-map-explorer dist/*.js",
+    "serve:ssr:daiminhvietnam": "node dist/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +35,7 @@
     "@ngxs/store": "^18.1.1",
     "@ngxs/websocket-plugin": "18.1.1",
     "express": "^4.19.2",
+    "ng-zorro-antd": "^18.1.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.7.0",
     "zone.js": "~0.14.3"
@@ -48,6 +49,7 @@
     "@types/jasmine": "~5.1.4",
     "@types/node": "^22.5.2",
     "angular-eslint": "18.3.0",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -57,7 +59,9 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8.4.44",
     "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.10",
     "typescript": "~5.5.4",
     "typescript-eslint": "8.3.0",
     "webpack-bundle-analyzer": "^4.10.2"

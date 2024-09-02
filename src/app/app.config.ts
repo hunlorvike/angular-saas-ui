@@ -18,6 +18,13 @@ import { withNgxsStoragePlugin } from '@ngxs/storage-plugin';
 import { provideStore } from '@ngxs/store';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { vi_VN, provideNzI18n } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import vi from '@angular/common/locales/vi';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
+registerLocaleData(vi);
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -34,7 +41,9 @@ export const appConfig: ApplicationConfig = {
                 keys: ['auth'],
             })
         ),
-        importProvidersFrom(FormsModule),
+        importProvidersFrom(FormsModule, NzIconModule),
         provideHttpClient(),
+        provideNzI18n(vi_VN),
+        provideAnimationsAsync(),
     ],
 };

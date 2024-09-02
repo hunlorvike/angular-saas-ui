@@ -18,7 +18,7 @@ module.exports = tseslint.config(
                 'error',
                 {
                     type: 'attribute',
-                    prefix: ['dmvn'],
+                    prefix: ['dmvn', 'app'],
                     style: 'camelCase',
                 },
             ],
@@ -26,7 +26,7 @@ module.exports = tseslint.config(
                 'error',
                 {
                     type: 'element',
-                    prefix: ['dmvn'],
+                    prefix: ['dmvn', 'app'],
                     style: 'kebab-case',
                 },
             ],
