@@ -1,0 +1,98 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-3xl font-semibold mb-8 text-center text-gray-800">
+            SIGN UP
+        </h2>
+        <form nz-form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <!-- Username Field -->
+            <div nz-form-item class="mb-6">
+                <div nz-form-label>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                </div>
+                <div nz-form-control>
+                    <input nz-input formControlName="username" id="username" placeholder="Enter your username"
+                        [ngClass]="{
+                            'border-red-500': signupForm.get('username')?.invalid && signupForm.get('username')?.touched,
+                            'border-gray-300': !(signupForm.get('username')?.invalid && signupForm.get('username')?.touched)
+                        }"
+                        class="block w-full mt-1 px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                </div>
+                <div class="text-red-500 mt-1 text-sm"
+                    *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
+                    <span *ngIf="signupForm.get('username')?.errors?.['required']">Username is required.</span>
+                    <span *ngIf="signupForm.get('username')?.errors?.['minlength']">Username must be at least 3
+                        characters long.</span>
+                </div>
+            </div>
+
+            <!-- Email Field -->
+            <div nz-form-item class="mb-6">
+                <div nz-form-label>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                </div>
+                <div nz-form-control>
+                    <input nz-input formControlName="email" id="email" placeholder="Enter your email" [ngClass]="{
+                        'border-red-500': signupForm.get('email')?.invalid && signupForm.get('email')?.touched,
+                        'border-gray-300': !(signupForm.get('email')?.invalid && signupForm.get('email')?.touched)
+                    }"
+                        class="block w-full mt-1 px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                </div>
+                <div class="text-red-500 mt-1 text-sm"
+                    *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+                    <span *ngIf="signupForm.get('email')?.errors?.['required']">Email is required.</span>
+                    <span *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email address.</span>
+                </div>
+            </div>
+
+            <!-- Password Field -->
+            <div nz-form-item class="mb-6">
+                <div nz-form-label>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                </div>
+                <div nz-form-control>
+                    <input nz-input type="password" formControlName="password" id="password"
+                        placeholder="Enter your password" [ngClass]="{
+                            'border-red-500': signupForm.get('password')?.invalid && signupForm.get('password')?.touched,
+                            'border-gray-300': !(signupForm.get('password')?.invalid && signupForm.get('password')?.touched)
+                        }"
+                        class="block w-full mt-1 px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                </div>
+                <div class="text-red-500 mt-1 text-sm"
+                    *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+                    <span *ngIf="signupForm.get('password')?.errors?.['required']">Password is required.</span>
+                    <span *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6
+                        characters long.</span>
+                </div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div nz-form-item class="mb-6">
+                <div nz-form-label>
+                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm
+                        Password</label>
+                </div>
+                <div nz-form-control>
+                    <input nz-input type="password" formControlName="confirmPassword" id="confirmPassword"
+                        placeholder="Confirm your password" [ngClass]="{
+                            'border-red-500': signupForm.get('confirmPassword')?.invalid &&
+                                signupForm.get('confirmPassword')?.touched &&
+                                signupForm.get('password')?.value && 
+                                signupForm.get('confirmPassword')?.value &&
+                                signupForm.errors?.['passwordsMismatch'],
+                            'border-gray-300': !(signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched)
+                        }"
+                        class="block w-full mt-1 px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                </div>
+                <span class="text-red-500 mt-1 text-sm" *ngIf="signupForm.errors?.['passwordsMismatch']">
+                    Passwords must match.
+                </span>
+            </div>
+
+            <button nz-button nzType="primary"
+                class="w-full py-2 px-4 bg-indigo-600 text-white rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out"
+                [disabled]="!signupForm.valid">
+                Signup
+            </button>
+        </form>
+    </div>
+</div>
