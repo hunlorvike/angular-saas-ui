@@ -11,9 +11,9 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { passwordsMatchValidator } from '../../password.validator';
+import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'dmvn-signup',
     standalone: true,
     imports: [
         CommonModule,
@@ -22,6 +22,7 @@ import { passwordsMatchValidator } from '../../password.validator';
         NzFormModule,
         NzInputModule,
         NzButtonModule,
+        RouterLink,
     ],
     templateUrl: './signup.component.html',
     styleUrls: ['./signup.component.scss'],

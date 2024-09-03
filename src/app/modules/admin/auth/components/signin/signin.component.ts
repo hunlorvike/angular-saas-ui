@@ -6,13 +6,13 @@ import {
     FormBuilder,
     Validators,
 } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 
 @Component({
-    selector: 'dmvn-signin',
     standalone: true,
     imports: [
         NzIconModule,
@@ -21,6 +21,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
         NzFormModule,
         NzInputModule,
         NzButtonModule,
+        RouterLink
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     templateUrl: './signin.component.html',

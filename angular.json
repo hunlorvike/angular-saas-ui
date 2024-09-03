@@ -93,13 +93,16 @@
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
+                        "main": "src/test.ts",
                         "polyfills": ["zone.js", "zone.js/testing"],
                         "tsConfig": "tsconfig.spec.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
+                            "src/assets",
                             {
                                 "glob": "**/*",
-                                "input": "public"
+                                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                                "output": "/assets/"
                             }
                         ],
                         "styles": [
@@ -113,6 +116,18 @@
                     "builder": "@angular-eslint/builder:lint",
                     "options": {
                         "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+                    }
+                },
+                "e2e": {
+                    "builder": "@puppeteer/ng-schematics:puppeteer",
+                    "options": {
+                        "devServerTarget": "daiminhvietnam:serve",
+                        "testRunner": "jasmine"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "daiminhvietnam:serve:production"
+                        }
                     }
                 }
             }
