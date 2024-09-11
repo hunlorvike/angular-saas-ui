@@ -1,1 +1,59 @@
-<router-outlet></router-outlet>
+<nz-layout class="flex h-screen text-gray-900 antialiased">
+  <!-- Sidebar -->
+  <nz-sider class="relative z-10 shadow-md bg-gray-900 transition-all duration-300" nzCollapsible [nzWidth]="256"
+    [nzCollapsedWidth]="80" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="flex items-center h-16 pl-6 space-x-5 bg-gray-800 transition-all duration-300">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" class="inline-block h-8 w-8">
+        <h1 class="inline-block text-white font-semibold text-sm ml-5" [class.hidden]="isCollapsed">Ant Design Of
+          Angular</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" class="text-gray-400">
+      <!-- Dashboard Submenu -->
+      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard" class="relative group">
+        <ul class="mt-2 space-y-1" [ngClass]="{'pl-2': isCollapsed, 'pl-6': !isCollapsed}">
+          <li nz-menu-item nzMatchRouter class="hover:bg-gray-700 group-hover:text-white transition-all"
+            [ngClass]="{'p-3': isCollapsed}">
+            <a routerLink="/welcome" class="block px-6 py-2 hover:text-blue-500">Welcome</a>
+          </li>
+          <li nz-menu-item nzMatchRouter class="hover:bg-gray-700 group-hover:text-white transition-all"
+            [ngClass]="{'p-3': isCollapsed}">
+            <a class="block px-6 py-2 hover:text-blue-500">Monitor</a>
+          </li>
+          <li nz-menu-item nzMatchRouter class="hover:bg-gray-700 group-hover:text-white transition-all"
+            [ngClass]="{'p-3': isCollapsed}">
+            <a class="block px-6 py-2 hover:text-blue-500">Workplace</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Form Submenu -->
+      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form" class="relative group">
+        <ul class="mt-2 space-y-1" [ngClass]="{'pl-2': isCollapsed, 'pl-6': !isCollapsed}">
+          <li nz-menu-item nzMatchRouter class="hover:bg-gray-700 group-hover:text-white transition-all"
+            [ngClass]="{'p-3': isCollapsed}">
+            <a class="block px-6 py-2 hover:text-blue-500">Basic Form</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+
+  <!-- Main Content -->
+  <nz-layout class="flex flex-col flex-1 transition-all duration-300" [class.ml-20]="isCollapsed">
+    <nz-header class="h-16 shadow-sm bg-white flex items-center justify-between px-6">
+      <div class="text-lg">
+        <button class="header-trigger cursor-pointer" (click)="isCollapsed = !isCollapsed"
+          (keydown.enter)="isCollapsed = !isCollapsed" tabindex="0">
+          <span class="trigger text-gray-900" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+        </button>
+      </div>
+    </nz-header>
+    <nz-content class="bg-gray-100 flex-1" [ngClass]="isCollapsed ? 'pt-6' : 'p-6'">
+      <div class="p-6 bg-white h-full">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
