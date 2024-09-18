@@ -7,47 +7,98 @@
             <!-- Email Field -->
             <div nz-form-item class="mb-6">
                 <div nz-form-label>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <label
+                        for="email"
+                        class="block text-sm font-medium text-gray-700"
+                        >Email</label
+                    >
                 </div>
                 <div nz-form-control>
-                    <input nz-input nzSize="large" formControlName="email" id="email" placeholder="Enter your email"
+                    <input
+                        nz-input
+                        nzSize="large"
+                        formControlName="email"
+                        id="email"
+                        placeholder="Enter your email"
                         [ngClass]="{
-                            'border-red-500': signinForm.get('email')?.invalid && signinForm.get('email')?.touched,
-                            'border-gray-300': !(signinForm.get('email')?.invalid && signinForm.get('email')?.touched),
+                            'border-red-500':
+                                signinForm.get('email')?.invalid &&
+                                signinForm.get('email')?.touched,
+                            'border-gray-300': !(
+                                signinForm.get('email')?.invalid &&
+                                signinForm.get('email')?.touched
+                            ),
                         }"
                         class="block w-full mt-1 p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                 </div>
                 <!-- Error message for email -->
-                <div class="text-red-500 mt-1 text-sm"
-                    *ngIf="signinForm.get('email')?.invalid && signinForm.get('email')?.touched">
-                    <span *ngIf="signinForm.get('email')?.errors?.['required']">Email is required.</span>
-                    <span *ngIf="signinForm.get('email')?.errors?.['email']">Please enter a valid email address.</span>
+                <div
+                    class="text-red-500 mt-1 text-sm"
+                    *ngIf="
+                        signinForm.get('email')?.invalid &&
+                        signinForm.get('email')?.touched
+                    ">
+                    <span *ngIf="signinForm.get('email')?.errors?.['required']"
+                        >Email is required.</span
+                    >
+                    <span *ngIf="signinForm.get('email')?.errors?.['email']"
+                        >Please enter a valid email address.</span
+                    >
                 </div>
             </div>
 
             <!-- Password Field -->
             <div nz-form-item class="mb-6">
                 <div nz-form-label>
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <label
+                        for="password"
+                        class="block text-sm font-medium text-gray-700"
+                        >Password</label
+                    >
                 </div>
                 <div nz-form-control>
-                    <input nz-input nzSize="large" type="password" formControlName="password" id="password"
-                        placeholder="Enter your password" [ngClass]="{
-                            'border-red-500': signinForm.get('password')?.invalid && signinForm.get('password')?.touched,
-                            'border-gray-300': !(signinForm.get('password')?.invalid && signinForm.get('password')?.touched),
+                    <input
+                        nz-input
+                        nzSize="large"
+                        type="password"
+                        formControlName="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        [ngClass]="{
+                            'border-red-500':
+                                signinForm.get('password')?.invalid &&
+                                signinForm.get('password')?.touched,
+                            'border-gray-300': !(
+                                signinForm.get('password')?.invalid &&
+                                signinForm.get('password')?.touched
+                            ),
                         }"
                         class="block w-full mt-1 p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                 </div>
                 <!-- Error message for password -->
-                <div class="text-red-500 mt-1 text-sm"
-                    *ngIf="signinForm.get('password')?.invalid && signinForm.get('password')?.touched">
-                    <span *ngIf="signinForm.get('password')?.errors?.['required']">Password is required.</span>
-                    <span *ngIf="signinForm.get('password')?.errors?.['minlength']">Password must be at least 6
-                        characters long.</span>
+                <div
+                    class="text-red-500 mt-1 text-sm"
+                    *ngIf="
+                        signinForm.get('password')?.invalid &&
+                        signinForm.get('password')?.touched
+                    ">
+                    <span
+                        *ngIf="signinForm.get('password')?.errors?.['required']"
+                        >Password is required.</span
+                    >
+                    <span
+                        *ngIf="
+                            signinForm.get('password')?.errors?.['minlength']
+                        "
+                        >Password must be at least 6 characters long.</span
+                    >
                 </div>
             </div>
 
-            <button nz-button nzType="primary" nzSize="large"
+            <button
+                nz-button
+                nzType="primary"
+                nzSize="large"
                 class="w-full bg-indigo-600 text-white rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out"
                 [disabled]="!signinForm.valid">
                 Login
@@ -56,7 +107,9 @@
 
         <div class="mt-6 text-center">
             <span class="text-gray-600">Don't have an account?</span>
-            <a routerLink="/admin/auth/sign-up" class="text-indigo-600 hover:text-indigo-700 font-medium">
+            <a
+                routerLink="/admin/auth/sign-up"
+                class="text-indigo-600 hover:text-indigo-700 font-medium">
                 Sign up
             </a>
         </div>

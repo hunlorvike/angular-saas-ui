@@ -1,17 +1,19 @@
 import { Routes } from '@angular/router';
+import { NotfoundComponent } from './modules/notfound/notfound.component';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: '/welcome' },
     {
-        path: 'welcome',
+        path: '',
         loadChildren: () =>
-            import('./pages/welcome/welcome.routes').then(
-                m => m.WELCOME_ROUTES
-            ),
+            import('./modules/client/client.routes').then(a => a.CLIENT_ROUTES),
     },
     {
         path: 'admin',
         loadChildren: () =>
-            import('./modules/admin/admin.routes').then(a => a.routes),
+            import('./modules/admin/admin.routes').then(a => a.ADMIN_ROUTES),
+    },
+    {
+        path: '**',
+        component: NotfoundComponent,
     },
 ];

@@ -1,0 +1,25 @@
+<nz-layout>
+    @if (isFixedLeftNav) {
+        <nz-sider
+            nzBreakpoint="lg"
+            [nzCollapsed]="isCollapsed"
+            [nzCollapsedWidth]="collapsedNavWidth"
+            [nzTheme]="theme"
+            [nzWidth]="sideNavWidth">
+        </nz-sider>
+    } @else {
+        <nz-sider
+            class="min-h-screen z-10 shadow-md"
+            [ngClass]="{
+                'fixed top-0 bottom-0 left-0': isCollapsed,
+            }"
+            nzBreakpoint="lg"
+            [nzCollapsed]="isCollapsed"
+            [nzCollapsedWidth]="collapsedNavWidth"
+            [nzCollapsible]="true"
+            [nzTheme]="theme"
+            [nzWidth]="sideNavWidth">
+            <dmvn-side-nav />
+        </nz-sider>
+    }
+</nz-layout>
