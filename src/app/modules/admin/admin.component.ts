@@ -7,7 +7,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import {
     COLLAPSED_NAV_WIDTH,
     SIDE_NAV_WIDTH,
-} from '../../core/configs/constants';
+} from '../../core/constants/theme.constants';
 import { SideNavComponent } from '../../partials/side-nav/side-nav.component';
 
 @Component({

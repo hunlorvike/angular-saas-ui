@@ -1,0 +1,4 @@
+export const THEME_CONST = {
+    COLLAPSED_NAV_WIDTH: 48,
+    SIDE_NAV_WIDTH: 208,
+};
