@@ -21,7 +21,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
         NzFormModule,
         NzInputModule,
         NzButtonModule,
-        RouterLink
+        RouterLink,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     templateUrl: './signin.component.html',
