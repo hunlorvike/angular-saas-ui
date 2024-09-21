@@ -1,6 +1,15 @@
-/**
- * Giao diện mô tả cấu trúc của một mục menu trong ứng dụng.
- */
+export interface IIcon {
+    /** Tên của icon */
+    name: string;
+
+    /**
+     * Kiểu của icon:
+     * - 'outlined' cho icon có đường viền ngoài
+     * - 'filled' cho icon đổ đầy
+     */
+    type: 'outlined' | 'filled';
+}
+
 export interface IMenu {
     /** ID duy nhất của mục menu, có thể là số hoặc chuỗi */
     id: number | string;
@@ -22,10 +31,10 @@ export interface IMenu {
     type: 'C' | 'F';
 
     /** Biểu tượng hiển thị bên cạnh tên menu (tùy chọn) */
-    icon?: string;
+    icon?: IIcon;
 
     /** Biểu tượng thay thế khi showIcon là false (tùy chọn) */
-    alIcon?: string;
+    alIcon?: IIcon;
 
     /** Trạng thái mở của menu (true: đang mở, false: đang đóng) */
     open?: boolean;
@@ -36,8 +45,11 @@ export interface IMenu {
     /** Danh sách các menu con, tạo cấu trúc cây phân cấp */
     children?: IMenu[];
 
-    /** Mã quyền hạn để xác định quyền truy cập vào mục menu */
-    code?: string;
+    /**
+     *  Mã quyền hạn để xác định quyền truy cập vào mục menu
+     * dmvn:default, dmvn:a, dmvn:sa
+     *  */
+    codes?: string[];
 
     /**
      * Flag đánh dấu cách mở liên kết:
