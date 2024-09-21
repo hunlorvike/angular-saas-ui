@@ -5,7 +5,7 @@ import {
     inject,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ThemeService } from '../../core/services/theme.service';
+import { ThemeService } from '../../core/services/store/theme.service';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { Observable } from 'rxjs';

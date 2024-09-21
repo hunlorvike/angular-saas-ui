@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { ActivatedRouteSnapshot } from '@angular/router';
+import { NzSafeAny } from 'ng-zorro-antd/core/types';
 /**
  * Định nghĩa các thuộc tính cơ bản cho phân trang.
  */
@@ -193,4 +196,46 @@ export interface ICascadeOption {
      * Nếu `true`, tùy chọn này không có tùy chọn con.
      */
     isLeaf?: boolean;
+}
+
+/**
+ * Kết quả tải dữ liệu lười biếng (lazy loading).
+ */
+export interface LazyResult {
+    /**
+     * Đường dẫn đến tài nguyên đã tải.
+     */
+    path: string;
+
+    /**
+     * Trạng thái của quá trình tải.
+     * Có thể là 'ok', 'error' hoặc 'loading'.
+     */
+    status: 'ok' | 'error' | 'loading';
+
+    /**
+     * (Tùy chọn) Thông tin lỗi nếu trạng thái là 'error'.
+     */
+    error?: NzSafeAny;
+}
+
+export interface LockScreenFlag {
+    locked: boolean;
+    password: string;
+    beforeLockPath: string;
+}
+
+export enum EquipmentWidth {
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    xxl,
+}
+
+export interface TabModel {
+    title: string;
+    path: string;
+    snapshotArray: ActivatedRouteSnapshot[];
 }
