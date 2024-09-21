@@ -4,6 +4,10 @@ import { CommonModule, NgClass } from '@angular/common';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import {
+    COLLAPSED_NAV_WIDTH,
+    SIDE_NAV_WIDTH,
+} from '../../core/constants/theme.constants';
 import { SideNavComponent } from '../../partials/side-nav/side-nav.component';
 import { THEME_CONST } from '../../core/constants';
 

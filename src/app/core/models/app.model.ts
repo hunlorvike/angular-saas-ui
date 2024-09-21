@@ -2,7 +2,6 @@
 
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { NzSafeAny } from 'ng-zorro-antd/core/types';
-
 /**
  * Định nghĩa các thuộc tính cơ bản cho phân trang.
  */
