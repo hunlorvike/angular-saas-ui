@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { IMenu } from '@app/core/models';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IMenu } from '../../models';
 
 @Injectable({
     providedIn: 'root',

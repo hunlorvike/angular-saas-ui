@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { LockScreenFlag } from '@app/core/models';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LockScreenFlag } from '../../models';
 
 @Injectable({
     providedIn: 'root',

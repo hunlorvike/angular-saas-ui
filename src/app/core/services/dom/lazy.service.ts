@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, filter, Observable, share } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { NzSafeAny } from 'ng-zorro-antd/core/types';
-import { LazyResult } from '../../models';
+import { LazyResult } from '@app/core/models';
 
 /**
  * Service LazyService để tải các tệp JavaScript và CSS một cách lười biếng.

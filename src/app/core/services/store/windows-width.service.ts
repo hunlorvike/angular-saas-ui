@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { EquipmentWidth } from '@app/core/models';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { EquipmentWidth } from '../../models';
 
 @Injectable({
     providedIn: 'root',
