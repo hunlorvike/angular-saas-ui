@@ -1,3 +1,7 @@
 export interface IEnvironment {
-    production: boolean
+  production: boolean;
+  app: {
+    name: string;
+    url: string;
+  };
 }
