@@ -1,1 +1,70 @@
-<router-outlet></router-outlet>
+<nz-layout class="h-full bg-gray-100">
+  <nz-sider
+    nzCollapsible
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+    class="bg-white shadow-md"
+  >
+    <div
+      class="logo flex flex-row items-center p-4 justify-center transition-all duration-300 ease-in-out"
+    >
+      @if (isCollapsed) {
+        <img
+          src="/favicon.ico"
+          alt="logo"
+          class="mb-2 w-8 h-8 transition-all duration-300 ease-in-out"
+        />
+      } @else {
+        <h1 class="font-bold transition-all duration-300 ease-in-out">
+          Đại Minh Việt Nam
+        </h1>
+      }
+    </div>
+    <ul nz-menu nzTheme="light" nzMode="inline">
+      <li nz-submenu nzTitle="User" nzIcon="user">
+        <ul>
+          <li nz-menu-item class="hover:bg-gray-200">Tom</li>
+          <li nz-menu-item class="hover:bg-gray-200">Bill</li>
+          <li nz-menu-item class="hover:bg-gray-200">Alex</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Team" nzIcon="team">
+        <ul>
+          <li nz-menu-item class="hover:bg-gray-200">Team 1</li>
+          <li nz-menu-item class="hover:bg-gray-200">Team 2</li>
+        </ul>
+      </li>
+      <li nz-menu-item class="hover:bg-gray-200">
+        <span nz-icon nzType="file"></span>
+        <span>File</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header class="bg-white shadow-md">
+      <span
+        class="trigger"
+        nz-icon
+        [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed; $event.stopPropagation()"
+        (keyup)="isCollapsed = !isCollapsed; $event.stopPropagation()"
+        tabindex="0"
+      ></span>
+    </nz-header>
+    <nz-content class="p-4">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>
+          <a>Trang chủ</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a>Quản lý</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>Chi tiết</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer class="bg-white text-center p-3 shadow-md"
+      >Đại Minh Việt Nam</nz-footer
+    >
+  </nz-layout>
+</nz-layout>

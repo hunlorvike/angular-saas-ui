@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { SpinnerService } from '@services/spinner.service';
+import { SpinnerService } from '@services/ui';
 
 @Component({
   selector: 'dai-minh-spinner',

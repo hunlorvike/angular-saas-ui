@@ -68,14 +68,13 @@
   },
   "lint-staged": {
     "*.scss": [
-      "stylelint --fix",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
-    "*.{ts,html}": [
-      "prettier --write",
-      "yarn run lint:fix",
-      "git add"
+    "*.ts": [
+      "prettier --write"
+    ],
+    "*.html": [
+      "prettier --write"
     ]
   }
 }

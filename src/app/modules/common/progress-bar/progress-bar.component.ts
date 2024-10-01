@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ProgressBarService } from '@services/progress-bar.service';
+import { ProgressBarService } from '@services/ui';
 
 @Component({
   selector: 'dai-minh-progress-bar',

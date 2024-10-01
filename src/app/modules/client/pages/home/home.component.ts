@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ProgressBarService } from '@services/progress-bar.service';
-import { SpinnerService } from '@services/spinner.service';
+import { ProgressBarService, SpinnerService } from '@services/ui';
 import { NzButtonComponent } from 'ng-zorro-antd/button';
 
 @Component({
