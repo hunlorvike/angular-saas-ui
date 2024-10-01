@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'dai-minh-root',
+  selector: 'dai-minh-admin',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
+  templateUrl: './admin.component.html',
 })
-export class AppComponent {
-}
+export class AdminComponent {}

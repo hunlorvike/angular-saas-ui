@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "dm",
+      "prefix": "dai-minh",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",

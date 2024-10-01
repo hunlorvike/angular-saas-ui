@@ -22,7 +22,7 @@
     "lib": ["ES2022", "dom"],
     "baseUrl": "./",
     "paths": {
-      "@config/*": ["./src/app/core/configs/*"],
+      "@constants/*": ["./src/app/core/constants/*"],
       "@models/*": ["./src/app/core/models/*"],
       "@services/*": ["./src/app/core/services/*"],
       "@environments/*": ["./src/environments/*"]
