@@ -92,7 +92,6 @@ export class AdminComponent implements OnInit {
                 ),
             )
             .subscribe(() => {
-                console.log(123);
                 this.breadCrumbList = this.__generateBreadcrumbs(
                     this.activatedRoute.root,
                 );
@@ -119,8 +118,6 @@ export class AdminComponent implements OnInit {
             if (routePath) {
                 url += `/${routePath}`;
             }
-
-            console.log(routePath);
 
             if (routePath && routePath !== 'admin' && breadcrumbLabel) {
                 breadcrumbs.push({ label: breadcrumbLabel, url });
