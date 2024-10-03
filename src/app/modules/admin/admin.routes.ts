@@ -9,8 +9,21 @@ export const adminRoutes: Routes = [
     children: [
       {
         path: '',
-        component: DashboardComponent,
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard.component').then(
+            (m) => m.DashboardComponent,
+          ),
+      },
+      {
+        path: 'posts',
+        loadChildren: () =>
+          import('./pages/post/post.routes').then((r) => r.postRoutes),
       },
     ],
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./pages/auth/auth.routes').then((r) => r.authRoutes),
   },
 ];
