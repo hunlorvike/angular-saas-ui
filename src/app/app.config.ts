@@ -1,7 +1,7 @@
 import {
-  ApplicationConfig,
-  provideZoneChangeDetection,
-  importProvidersFrom,
+    ApplicationConfig,
+    provideZoneChangeDetection,
+    importProvidersFrom,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
@@ -16,12 +16,12 @@ import { provideHttpClient } from '@angular/common/http';
 registerLocaleData(vi);
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
-    provideNzI18n(vi_VN),
-    importProvidersFrom(FormsModule),
-    provideAnimationsAsync(),
-    provideHttpClient(),
-  ],
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideRouter(routes),
+        provideNzI18n(vi_VN),
+        importProvidersFrom(FormsModule),
+        provideAnimationsAsync(),
+        provideHttpClient(),
+    ],
 };

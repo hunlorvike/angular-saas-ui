@@ -1,82 +1,146 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import {
-  Router,
-  RouterLink,
-  RouterLinkActive,
-  RouterOutlet,
+    Component,
+    CUSTOM_ELEMENTS_SCHEMA,
+    inject,
+    OnInit,
+} from '@angular/core';
+import {
+    Router,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+    ActivatedRoute,
+    NavigationEnd,
+    NavigationStart,
 } from '@angular/router';
-import { MenuItem } from '@models/menu-item.interface';
-import { NzAvatarComponent, NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { Breadcrumb, MenuItem } from '@models/index';
+import { NzAvatarComponent } from 'ng-zorro-antd/avatar';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'dai-minh-admin',
-  standalone: true,
-  imports: [
-    NzLayoutModule,
-    NzBreadCrumbModule,
-    NzMenuModule,
-    RouterLink,
-    RouterLinkActive,
-    NzIconModule,
-    NzDropDownModule,
-    NzAvatarComponent,
-    NzToolTipModule,
-    RouterOutlet,
-  ],
-  templateUrl: './admin.component.html',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'dai-minh-admin',
+    standalone: true,
+    imports: [
+        NzLayoutModule,
+        NzBreadCrumbModule,
+        NzMenuModule,
+        RouterLink,
+        RouterLinkActive,
+        NzIconModule,
+        NzDropDownModule,
+        NzAvatarComponent,
+        NzToolTipModule,
+        RouterOutlet,
+    ],
+    templateUrl: './admin.component.html',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AdminComponent {
-  private router = inject(Router);
+export class AdminComponent implements OnInit {
+    private router = inject(Router);
+    private activatedRoute = inject(ActivatedRoute);
 
-  isOpenMap: Map<string, boolean> = new Map<string, boolean>();
+    isMenuOpenMap = new Map<string, boolean>();
+    breadCrumbList: Breadcrumb[] = [];
 
-  isCollapsed = false;
-  menuItems: MenuItem[] = [
-    {
-      title: 'Trang chủ',
-      icon: { type: 'home', theme: 'outline' },
-      type: 'C',
-      path: '/admin',
-    },
-    {
-      title: 'Quản lý bài viết',
-      icon: { type: 'book', theme: 'outline' },
-      type: 'F',
-      children: [
+    isCollapsed = false;
+    menuItems: MenuItem[] = [
         {
-          title: 'Danh sách bài viết',
-          type: 'C',
-          path: '/admin/posts/',
+            title: 'Trang chủ',
+            icon: { type: 'home', theme: 'outline' },
+            type: 'C',
+            path: '/admin/dashboard',
         },
         {
-          title: 'Thêm bài viết',
-          type: 'C',
-          path: '/admin/posts/create',
+            title: 'Quản lý bài viết',
+            icon: { type: 'book', theme: 'outline' },
+            type: 'F',
+            children: [
+                {
+                    title: 'Danh sách bài viết',
+                    type: 'C',
+                    path: '/admin/posts/list',
+                },
+                {
+                    title: 'Thêm bài viết',
+                    type: 'C',
+                    path: '/admin/posts/create',
+                },
+            ],
         },
-      ],
-    },
-  ];
+    ];
 
-  isSelected(path: string): boolean {
-    if (!path) {
-      return false;
+    ngOnInit(): void {
+        this.__initializeBreadcrumbs();
+        this.breadCrumbList = this.__generateBreadcrumbs(
+            this.activatedRoute.root,
+        );
     }
-    return this.router.url === path;
-  }
 
-  isOpen(menu: MenuItem): boolean {
-    return this.isOpenMap.get(menu.title) || false;
-  }
+    private __initializeBreadcrumbs(): void {
+        this.router.events
+            .pipe(
+                filter(
+                    (event) =>
+                        event instanceof NavigationEnd ||
+                        event instanceof NavigationStart,
+                ),
+            )
+            .subscribe(() => {
+                console.log(123);
+                this.breadCrumbList = this.__generateBreadcrumbs(
+                    this.activatedRoute.root,
+                );
+            });
+    }
 
-  handleMenuOpenChange(menu: MenuItem): void {
-    const currentState = this.isOpenMap.get(menu.title) || false;
-    this.isOpenMap.set(menu.title, !currentState);
-  }
+    private __generateBreadcrumbs(
+        route: ActivatedRoute,
+        url = '',
+        breadcrumbs: Breadcrumb[] = [],
+    ): Breadcrumb[] {
+        const childRoutes: ActivatedRoute[] = route.children;
+
+        if (!childRoutes.length) return breadcrumbs;
+
+        childRoutes.forEach((child) => {
+            const routePath = child.snapshot.url
+                .map((segment) => segment.path)
+                .filter((path) => path)
+                .join('/');
+
+            const breadcrumbLabel = child.snapshot.data['breadcrumb'];
+
+            if (routePath) {
+                url += `/${routePath}`;
+            }
+
+            console.log(routePath);
+
+            if (routePath && routePath !== 'admin' && breadcrumbLabel) {
+                breadcrumbs.push({ label: breadcrumbLabel, url });
+            }
+
+            this.__generateBreadcrumbs(child, url, breadcrumbs);
+        });
+
+        return breadcrumbs;
+    }
+
+    isMenuSelected(path: string): boolean {
+        return path ? this.router.url === path : false;
+    }
+
+    isMenuOpen(menu: MenuItem): boolean {
+        return this.isMenuOpenMap.get(menu.title) || false;
+    }
+
+    handleMenuToggle(menu: MenuItem): void {
+        this.isMenuOpenMap.set(menu.title, !this.isMenuOpenMap.get(menu.title));
+    }
 }

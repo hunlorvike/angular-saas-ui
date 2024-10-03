@@ -4,9 +4,9 @@ import { ProgressBarComponent } from '../common/progress-bar/progress-bar.compon
 import { SpinnerComponent } from '../common/spinner/spinner.component';
 
 @Component({
-  selector: 'dai-minh-client',
-  standalone: true,
-  imports: [RouterOutlet, ProgressBarComponent, SpinnerComponent],
-  templateUrl: './client.component.html',
+    selector: 'dai-minh-client',
+    standalone: true,
+    imports: [RouterOutlet, ProgressBarComponent, SpinnerComponent],
+    templateUrl: './client.component.html',
 })
 export class ClientComponent {}
