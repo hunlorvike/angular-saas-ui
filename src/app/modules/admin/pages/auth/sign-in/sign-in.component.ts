@@ -1,10 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { AuthLayoutComponent } from '../auth-layout.component';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
-    selector: 'dai-minh-sign-in',
     standalone: true,
-    imports: [],
+    imports: [FormsModule, AuthLayoutComponent, RouterLink],
     templateUrl: './sign-in.component.html',
-    styleUrl: './sign-in.component.scss',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SignInComponent {}
+export class SignInComponent {
+    signInForm: FormGroup;
+
+    constructor(
+        private router: Router,
+        private fb: FormBuilder,
+    ) {
+        this.signInForm = this.fb.group({
+            email: [''],
+            password: [''],
+        });
+    }
+
+    onSubmit() {
+        console.log('Sign In form submitted with', this.signInForm.value);
+
+        const isLoginSuccessful = true;
+
+        if (isLoginSuccessful) {
+            this.router.navigate(['/admin']);
+        }
+    }
+}
