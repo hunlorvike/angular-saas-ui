@@ -18,7 +18,7 @@ module.exports = tseslint.config(
                 'error',
                 {
                     type: 'attribute',
-                    prefix: ['dai-minh', 'app'],
+                    prefix: ['dai-minh', 'app', 'dm'],
                     style: 'camelCase',
                 },
             ],
@@ -26,7 +26,7 @@ module.exports = tseslint.config(
                 'error',
                 {
                     type: 'element',
-                    prefix: ['dai-minh', 'app'],
+                    prefix: ['dai-minh', 'app', 'dm'],
                     style: 'kebab-case',
                 },
             ],
