@@ -3,7 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { SpinnerService } from '@services/ui';
 
 @Component({
-    selector: 'dai-minh-spinner',
+    selector: 'dm-spinner',
     standalone: true,
     imports: [CommonModule],
     template: `

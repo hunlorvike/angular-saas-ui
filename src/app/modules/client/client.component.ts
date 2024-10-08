@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ClientModuleModule } from './components';
 
@@ -7,5 +7,6 @@ import { ClientModuleModule } from './components';
     standalone: true,
     imports: [RouterOutlet, ClientModuleModule],
     templateUrl: './client.component.html',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ClientComponent {}

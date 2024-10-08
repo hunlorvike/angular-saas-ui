@@ -25,6 +25,7 @@
             "@constants/*": ["./src/app/core/constants/*"],
             "@models/*": ["./src/app/core/models/*"],
             "@services/*": ["./src/app/core/services/*"],
+            "@utils/*": ["./src/app/core/utils/*"],
             "@environments/*": ["./src/environments/*"]
         }
     },

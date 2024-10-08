@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { PageNotFoundComponent } from './modules/common/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './modules/common';
 
 export const routes: Routes = [
     {

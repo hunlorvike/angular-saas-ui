@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DmTypingEffectDirective } from '@services/directive/dm-typing-effect.directive';
 
 @Component({
-    selector: 'dai-minh-header',
+    selector: 'dm-header',
     standalone: true,
     imports: [DmTypingEffectDirective],
     templateUrl: './header.component.html',

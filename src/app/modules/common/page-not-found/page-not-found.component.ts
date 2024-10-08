@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'dai-minh-page-not-found',
+    selector: 'dm-pnf',
     standalone: true,
     imports: [RouterLink],
     template: `

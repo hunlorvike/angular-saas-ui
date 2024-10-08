@@ -3,7 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ProgressBarService } from '@services/ui';
 
 @Component({
-    selector: 'dai-minh-progress-bar',
+    selector: 'dm-progress-bar',
     standalone: true,
     imports: [CommonModule],
     template: `
