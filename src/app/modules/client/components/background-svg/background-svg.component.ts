@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import {
     Component,
     NO_ERRORS_SCHEMA,
@@ -20,20 +19,20 @@ interface Circle {
 @Component({
     selector: 'dm-bg-svg',
     standalone: true,
-    imports: [CommonModule],
+    imports: [],
     template: `
         <svg
-            class="absolute inset-0 w-screen h-screen -z-10 overflow-hidden blur-xl opacity-30"
+            class="absolute bg-gray-50 inset-0 w-screen h-screen -z-10 overflow-hidden blur-xl opacity-30"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <ng-container *ngFor="let circle of circles">
+            @for (circle of circles; track circle.cx) {
                 <circle
                     [attr.cx]="circle.cx"
                     [attr.cy]="circle.cy"
                     [attr.r]="circle.r"
                     [attr.fill]="circle.fill"
                 ></circle>
-            </ng-container>
+            }
         </svg>
     `,
     styles: `

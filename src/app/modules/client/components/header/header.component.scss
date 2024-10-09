@@ -1,0 +1,7 @@
+.active-link-desktop {
+    @apply bg-black text-white text-xs font-medium px-2.5 py-0.5 rounded-full;
+}
+
+.active-link-mobile {
+    @apply bg-gray-900 text-white rounded;
+}

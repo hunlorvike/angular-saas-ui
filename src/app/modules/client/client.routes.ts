@@ -20,4 +20,11 @@ export const clientRoutes: Routes = [
                 (m) => m.DocumentComponent,
             ),
     },
+    {
+        path: 'coming-soon',
+        loadComponent: () =>
+            import('./pages/coming-soon/coming-soon.component').then(
+                (m) => m.ComingSoonComponent,
+            ),
+    },
 ];
