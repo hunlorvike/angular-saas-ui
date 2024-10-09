@@ -19,7 +19,8 @@
                     <a
                         [routerLink]="item.path"
                         routerLinkActive="active-link-desktop"
-                        class="text-sm leading-6 text-gray-800 hover:text-black active:font-bold active:text-black active:bg-gray-200"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        class="text-sm leading-6 text-gray-800 hover:text-black"
                     >
                         {{ item.title }}
                     </a>
@@ -85,6 +86,7 @@
                     <a
                         [routerLink]="item.path"
                         routerLinkActive="active-link-mobile"
+                        [routerLinkActiveOptions]="{ exact: true }"
                         class="p-2 text-gray-900"
                     >
                         {{ item.title }}
