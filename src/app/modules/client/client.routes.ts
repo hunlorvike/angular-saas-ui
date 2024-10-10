@@ -3,6 +3,7 @@ import { ClientComponent } from './client.component';
 import { HomeComponent } from './pages';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
+import { FeatureComponent } from './pages/feature/feature.component';
 
 export const clientRoutes: Routes = [
     {
@@ -12,6 +13,10 @@ export const clientRoutes: Routes = [
             {
                 path: '',
                 component: HomeComponent,
+            },
+            {
+                path: 'feature',
+                component: FeatureComponent,
             },
             {
                 path: 'pricing',

@@ -21,7 +21,7 @@ export class HeaderComponent {
 
     menuItems: MenuItem[] = [
         { title: 'Home', path: '/', type: 'C' },
-        { title: 'Features', path: '/features', type: 'C' },
+        { title: 'Features', path: '/feature', type: 'C' },
         { title: 'Pricing', path: '/pricing', type: 'C' },
         { title: 'About', path: '/about', type: 'C' },
         { title: 'Contact', path: '/contact', type: 'C' },
