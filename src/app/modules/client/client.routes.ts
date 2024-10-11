@@ -6,6 +6,7 @@ import {
     FaqComponent,
     FeatureComponent,
     HomeComponent,
+    PostComponent,
     PricingComponent,
 } from './pages';
 
@@ -37,6 +38,10 @@ export const clientRoutes: Routes = [
             {
                 path: 'faq',
                 component: FaqComponent,
+            },
+            {
+                path: 'posts',
+                component: PostComponent,
             },
         ],
     },
