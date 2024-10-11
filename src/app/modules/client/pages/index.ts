@@ -7,3 +7,5 @@ export * from './feature/feature.component';
 export * from './home/home.component';
 export * from './post/post.component';
 export * from './pricing/pricing.component';
+export * from './product/product.component';
+export * from './product-detail/product-detail.component';

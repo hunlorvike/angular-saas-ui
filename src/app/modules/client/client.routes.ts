@@ -8,6 +8,8 @@ import {
     HomeComponent,
     PostComponent,
     PricingComponent,
+    ProductComponent,
+    ProductDetailComponent,
 } from './pages';
 
 export const clientRoutes: Routes = [
@@ -42,6 +44,14 @@ export const clientRoutes: Routes = [
             {
                 path: 'posts',
                 component: PostComponent,
+            },
+            {
+                path: 'products',
+                component: ProductComponent,
+            },
+            {
+                path: 'product-detail',
+                component: ProductDetailComponent,
             },
         ],
     },
