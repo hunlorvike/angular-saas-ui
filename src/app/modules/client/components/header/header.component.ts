@@ -23,7 +23,7 @@ export class HeaderComponent {
         { title: 'Home', path: '/', type: 'C' },
         { title: 'Features', path: '/feature', type: 'C' },
         { title: 'Pricing', path: '/pricing', type: 'C' },
-        { title: 'About', path: '/about', type: 'C' },
+        { title: 'About', path: '/about-us', type: 'C' },
         { title: 'Contact', path: '/contact', type: 'C' },
     ];
 
